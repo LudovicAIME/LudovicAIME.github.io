@@ -118,10 +118,15 @@ h3 {
   padding-top: 60px;
 }
 #ocean {
-  background: url(media/ocean.jpg);
+    background: url(media/ocean.jpg);
+    background-size: cover;
+    background-position: center;
 }
+
 #chateau {
-  background: url(media/chateau.JPG);
+    background: url(media/chateau.jpeg);
+    background-size: cover;
+    background-position: center;
 }
 #phare {
   background: url(media/phare.JPG);
