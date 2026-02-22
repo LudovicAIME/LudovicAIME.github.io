@@ -135,7 +135,10 @@ h3 {
 
 }
 #vignoble {
-  background: url(media/vignes.jpg);
+    background: url(media/vignes.jpg);
+    background-size: cover;
+    background-position: center;
+
 }
 #tourisme li {
   margin: 65px 100px 0 100px;
