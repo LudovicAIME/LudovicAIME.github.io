@@ -56,12 +56,22 @@
     </section>
     <footer>
       <h2 id="contact">Contactez-nous</h2>
-      <form action="mailto:ludovicjm.aime@laposte.net" method="post" enctype="text/plain">
-        <input name="Nom" placeholder="Nom">
-        <input name="E-mail" type="email" placeholder="E-mail">
-        <textarea name="Message" placeholder="Votre message ici..."></textarea>
+      <form id="contactForm">
+        <input id="formNom" placeholder="Nom">
+        <input id="formEmail" type="email" placeholder="E-mail">
+        <textarea id="formMessage" placeholder="Votre message ici..."></textarea>
         <button type="submit">Envoyer</button>
       </form>
+      <script>
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+          e.preventDefault();
+          var nom = document.getElementById('formNom').value;
+          var email = document.getElementById('formEmail').value;
+          var message = document.getElementById('formMessage').value;
+          var body = 'Nom: ' + nom + '\nE-mail: ' + email + '\n\nMessage:\n' + message;
+          window.location.href = 'mailto:ludovicjm.aime@laposte.net?subject=Contact%20Les%20Lucioles&body=' + encodeURIComponent(body);
+        });
+      </script>
       <div id="deuxiemeTrait"></div>
       <div id="copyrightEtIcons">
         <div id="copyright">
