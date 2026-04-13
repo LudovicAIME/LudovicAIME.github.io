@@ -2,90 +2,128 @@
 <html lang="fr">
   <head>
     <meta charset="UTF-8">
-
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Les Lucioles — Maison de vacances à La Croix-Valmer, Provence. Piscine, vue sur mer, jardin provençal. Réservez votre séjour unique en Côte d'Azur.">
     <title>Les Lucioles</title>
-
-    <link rel="stylesheet" href="style.css">   
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>✨</text></svg>">
+    <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css">
-
   </head>
   <body>
+
+    <!-- ===== NAVBAR ===== -->
+    <nav id="navbar">
+      <div id="logo"><a href="#">Les Lucioles</a></div>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#tarifs">Tarifs</a></li>
+        <li><a href="#contact">Nous contacter</a></li>
+      </ul>
+      <button class="hamburger" id="hamburger" aria-label="Ouvrir le menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </nav>
+
+    <!-- ===== HERO ===== -->
     <header>
-      <nav>
-        <ul>
-          <li id="logo"><a href="#">Les Lucioles</a></li>
-          <li><a href="#contact">Nous contacter</a></li>
-        </ul>
-      </nav>
       <div id="imagePrincipale">
         <h1>Les Lucioles</h1>
         <div id="premierTrait"></div>
         <h3>La Croix Valmer</h3>
       </div>
-
     </header>
+
+    <!-- ===== PRÉSENTATION ===== -->
     <section id="presentation">
-      <div id="texteIntro">
+      <div id="texteIntro" class="fade-in">
         <h2>Un lieu unique, pour un séjour unique</h2>
-        <p> notre magnifique maison à La Croix-Valmer </p>
+        <p>Notre magnifique maison à La Croix-Valmer vous accueille dans un cadre provençal exceptionnel. Profitez du soleil, de la piscine et de la mer Méditerranée à quelques minutes à pied.</p>
       </div>
       <div id="prestations">
-        <div class="imagesPrestations">
+        <div class="imagesPrestations fade-in">
           <h4>Nous trouver</h4>
-          <a href="#"><img src="media/carte.JPG" alt="carte"></a>
+          <img src="media/carte.JPG" alt="Carte de localisation à La Croix-Valmer" loading="lazy" class="lightbox-trigger">
         </div>
-        <div class="imagesPrestations">
-          <h4>Coté chambres</h4>
-          <a href="#"><img src="media/chambre.JPG" alt="chambre"></a>
+        <div class="imagesPrestations fade-in">
+          <h4>Côté chambres</h4>
+          <img src="media/chambre.JPG" alt="Chambre de la maison" loading="lazy" class="lightbox-trigger">
         </div>
-        <div class="imagesPrestations">
-          <h4>Coté cuisine</h4>
-          <a href="#"><img src="media/repas.JPG" alt="repas"></a>
+        <div class="imagesPrestations fade-in">
+          <h4>Côté cuisine</h4>
+          <img src="media/repas.JPG" alt="Cuisine et repas" loading="lazy" class="lightbox-trigger">
         </div>
       </div>
-
     </section>
+
+    <!-- ===== TOURISME ===== -->
     <section id="tourisme">
-      <h2>Et tant à découvrir...</h2>
+      <h2 class="fade-in">Et tant à découvrir…</h2>
       <ul>
-        <li id="ocean"><p>La mer méditérannée</p></li>
-        <li id="chateau"><p>piscine et vue sur mer</p></li>
-        <li id="phare"><p>La villa</p></li>
-        <li id="vignoble"><p>Le jardin</p></li>
+        <li id="ocean" class="fade-in"><p>La mer Méditerranée</p></li>
+        <li id="chateau" class="fade-in"><p>Piscine et vue sur mer</p></li>
+        <li id="phare" class="fade-in"><p>La villa</p></li>
+        <li id="vignoble" class="fade-in"><p>Le jardin</p></li>
       </ul>
     </section>
+
+    <!-- ===== TARIFS ===== -->
+    <section id="tarifs">
+      <h2 class="fade-in">Tarifs &amp; Disponibilités</h2>
+      <div id="tarifCards">
+        <div class="tarifCard fade-in">
+          <h3>Basse saison</h3>
+          <p class="periode">Octobre — Mai</p>
+          <p class="prix">à partir de<br><strong>— €</strong><span>/semaine</span></p>
+          <a href="#contact" class="btnTarif">Nous contacter</a>
+        </div>
+        <div class="tarifCard featured fade-in">
+          <div class="badge">Populaire</div>
+          <h3>Haute saison</h3>
+          <p class="periode">Juin — Septembre</p>
+          <p class="prix">à partir de<br><strong>— €</strong><span>/semaine</span></p>
+          <a href="#contact" class="btnTarif">Nous contacter</a>
+        </div>
+        <div class="tarifCard fade-in">
+          <h3>Week-end</h3>
+          <p class="periode">Toute l'année</p>
+          <p class="prix">à partir de<br><strong>— €</strong><span>/nuit</span></p>
+          <a href="#contact" class="btnTarif">Nous contacter</a>
+        </div>
+      </div>
+      <p id="tarifNote" class="fade-in">* Les tarifs varient selon la période et la durée du séjour. Contactez-nous pour un devis personnalisé.</p>
+    </section>
+
+    <!-- ===== FOOTER / CONTACT ===== -->
     <footer>
       <h2 id="contact">Contactez-nous</h2>
       <form id="contactForm">
-        <input id="formNom" placeholder="Nom">
-        <input id="formEmail" type="email" placeholder="E-mail">
-        <textarea id="formMessage" placeholder="Votre message ici..."></textarea>
-        <button type="submit">Envoyer</button>
+        <input name="Nom" id="formNom" placeholder="Nom" required>
+        <input name="email" id="formEmail" type="email" placeholder="E-mail" required>
+        <textarea name="Message" id="formMessage" placeholder="Votre message ici..." required></textarea>
+        <button type="submit" id="submitBtn">Envoyer</button>
+        <div id="formFeedback"></div>
       </form>
-      <script>
-        document.getElementById('contactForm').addEventListener('submit', function(e) {
-          e.preventDefault();
-          var nom = document.getElementById('formNom').value;
-          var email = document.getElementById('formEmail').value;
-          var message = document.getElementById('formMessage').value;
-          var body = 'Nom: ' + nom + '\nE-mail: ' + email + '\n\nMessage:\n' + message;
-          window.location.href = 'mailto:ludovicjm.aime@laposte.net?subject=Contact%20Les%20Lucioles&body=' + encodeURIComponent(body);
-        });
-      </script>
       <div id="deuxiemeTrait"></div>
       <div id="copyrightEtIcons">
         <div id="copyright">
-          <span> Ludovic AIME © 2026 </span>
+          <span>Ludovic AIME © 2026</span>
         </div>
         <div id="icons">
-          <a href="https://twitter.com"><i class="fa fa-twitter"></i></a>
-          <a href="https://www.facebook.com"><i class="fa fa-facebook"></i></a>
-          <a href="https://www.instagram.com"><i class="fa fa-instagram"></i></a>
-
+          <!-- Remplacez les # par vos vrais liens réseaux sociaux -->
+          <a href="#" aria-label="Twitter"><i class="fa fa-twitter"></i></a>
+          <a href="#" aria-label="Facebook"><i class="fa fa-facebook"></i></a>
+          <a href="#" aria-label="Instagram"><i class="fa fa-instagram"></i></a>
         </div>
       </div>
-
     </footer>
-  </body>
 
+    <!-- ===== LIGHTBOX ===== -->
+    <div id="lightbox" aria-hidden="true">
+      <button id="lightboxClose" aria-label="Fermer">✕</button>
+      <img id="lightboxImg" src="" alt="Image agrandie">
+    </div>
+
+    <script src="script.js"></script>
+  </body>
 </html>

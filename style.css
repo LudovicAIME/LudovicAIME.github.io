@@ -1,5 +1,12 @@
 @import url('https://fonts.googleapis.com/css?family=Advent+Pro|Dancing+Script&display=swap');
 
+/* =========================================
+   RESET & BASE
+   ========================================= */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
 html {
   scroll-behavior: smooth;
 }
@@ -9,89 +16,189 @@ body {
   padding: 0;
   margin: 0;
 }
+
 ul {
   margin: 0;
   padding: 0;
 }
+
 li {
   list-style-type: none;
 }
+
 h2 {
   text-transform: uppercase;
   text-align: center;
   padding-top: 30px;
   font-size: 2em;
 }
+
 a {
   text-decoration: none;
   color: black;
 }
-/* ******************* NAVBAR ******************* */
-nav {
-  overflow: hidden;
+
+/* =========================================
+   NAVBAR
+   ========================================= */
+#navbar {
   background-color: #FFFAE1;
   position: fixed;
+  top: 0;
   width: 100%;
-  opacity: 0.9;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 20px;
+  opacity: 0.95;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
 }
-header li {
-  float: right;
-  font-size: 1.2em;
-}
-header li a {
-  text-decoration: none;
-  display: block;
-  text-align: center;
-  padding: 18px 16px;
-}
-#logo {
+
+#logo a {
   font-family: 'Dancing Script', cursive;
   font-weight: bold;
-  float: left;
+  font-size: 1.5em;
+  padding: 16px 0;
+  display: block;
+  color: #524A3A;
 }
-/* **************** IMAGE PRINCIPALE ************* */
+
+.nav-links {
+  display: flex;
+  gap: 0;
+}
+
+.nav-links li a {
+  display: block;
+  padding: 18px 16px;
+  font-size: 1.2em;
+  color: #524A3A;
+  transition: color 0.3s;
+}
+
+.nav-links li a:hover {
+  color: #01DF74;
+}
+
+/* Hamburger button */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 10px 5px;
+  width: auto;
+  border-radius: 0;
+  margin: 0;
+}
+
+.hamburger span {
+  display: block;
+  width: 25px;
+  height: 3px;
+  background-color: #524A3A;
+  border-radius: 3px;
+  transition: 0.3s;
+}
+
+/* Hamburger → croix quand ouvert */
+.hamburger.active span:nth-child(1) {
+  transform: translateY(8px) rotate(45deg);
+}
+
+.hamburger.active span:nth-child(2) {
+  opacity: 0;
+}
+
+.hamburger.active span:nth-child(3) {
+  transform: translateY(-8px) rotate(-45deg);
+}
+
+/* Menu mobile déroulant */
+.nav-links.open {
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  top: 57px;
+  left: 0;
+  right: 0;
+  background-color: #FFFAE1;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.nav-links.open li a {
+  border-top: 1px solid rgba(82,74,58,0.1);
+  padding: 15px 20px;
+}
+
+/* =========================================
+   HERO
+   ========================================= */
 #imagePrincipale {
-  padding-top: 60px;
+  padding-top: 57px;
   background: url(media/image-principale.JPG) no-repeat fixed 50% 50%;
   background-size: cover;
-  height: 799px;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
+
 h1 {
   font-family: 'Dancing Script', cursive;
   text-align: center;
   color: antiquewhite;
   font-size: 6em;
-  margin-top: 100px;
-  text-shadow: 1px 3px 2px black;
+  margin: 0;
+  text-shadow: 1px 3px 6px rgba(0,0,0,0.7);
 }
+
 #premierTrait {
   height: 1px;
   width: 25%;
-  margin: -3px auto;
+  margin: 15px auto;
   background-color: #FFFAE1;
   box-shadow: 1px 3px 2px black;
 }
+
 h3 {
   text-align: center;
-  color:antiquewhite;
+  color: antiquewhite;
   font-size: 3em;
   text-shadow: 1px 3px 2px black;
+  margin: 0;
 }
-/* *************** PRESENTATION ********************** */
+
+/* =========================================
+   PRÉSENTATION
+   ========================================= */
 #presentation {
   background-color: #FFFAE1;
-  padding: 10px 0px 100px 0;
+  padding: 10px 0 100px 0;
 }
+
 #texteIntro {
-  padding: 0px 20%;
+  padding: 20px 20%;
   text-align: center;
 }
+
+#texteIntro p {
+  font-size: 1.2em;
+  line-height: 1.7;
+  color: #524A3A;
+}
+
 #prestations {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
-  padding: 30px 10%;  
+  padding: 30px 10%;
 }
+
 .imagesPrestations h4 {
   font-family: 'Dancing Script', cursive;
   text-align: center;
@@ -99,47 +206,39 @@ h3 {
   margin: 15px;
   font-weight: 300;
 }
+
 .imagesPrestations img {
   border-radius: 10px;
   box-shadow: 5px 5px 3px 1px rgba(0,0,0,0.7);
+  cursor: pointer;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  display: block;
 }
+
 .imagesPrestations img:hover {
-  opacity: 0.5;
+  opacity: 0.8;
   transform: scale(1.05);
-  transition: 0.6s ease-in-out;
 }
-/* **************** TOURISME ********************** */
+
+/* =========================================
+   TOURISME
+   ========================================= */
 #tourisme {
-  height: 1400px;
+  min-height: 1400px;
   background-color: #f1f2f6;
   padding: 1px 2%;
+  overflow: hidden;
 }
+
 #tourisme h2 {
   padding-top: 60px;
 }
-#ocean {
-    background: url(media/ocean.jpg);
-    background-size: cover;
-    background-position: center;
-}
 
-#chateau {
-    background: url(media/chateau.jpeg);
-    background-size: cover;
-    background-position: center;
-}
-#phare {
-    background: url(media/phare.JPG);
-    background-size: cover;
-    background-position: center;
+#ocean    { background: url(media/ocean.jpg)    center/cover; }
+#chateau  { background: url(media/chateau.jpeg) center/cover; }
+#phare    { background: url(media/phare.JPG)    center/cover; }
+#vignoble { background: url(media/vignes.jpg)   center/cover; }
 
-}
-#vignoble {
-    background: url(media/vignes.jpg);
-    background-size: cover;
-    background-position: center;
-
-}
 #tourisme li {
   margin: 65px 100px 0 100px;
   height: 226px;
@@ -148,38 +247,178 @@ h3 {
   float: left;
   box-shadow: 6px 6px 28px -1px rgba(0,0,0,0.75);
 }
+
 #tourisme p {
   height: 45px;
   width: 235px;
   background-color: #01DF74;
-  float:right;
+  float: right;
   margin: 50px -180px 0 0;
   font-size: 1.5em;
   text-align: center;
   padding-top: 15px;
   box-shadow: 4px 4px 0 1px rgba(90,161,43,1);
 }
+
 #tourisme #chateau, #tourisme #vignoble {
   float: right;
 }
+
 #chateau p, #vignoble p {
   float: left;
   background-color: cyan;
   margin-left: -180px;
   box-shadow: -4px 4px 0 1px rgba(15,154,156,1);
 }
-/* ******************* FOOTER ******************** */
+
+/* =========================================
+   TARIFS
+   ========================================= */
+#tarifs {
+  background-color: #FFFAE1;
+  padding: 20px 0 80px;
+  clear: both;
+}
+
+#tarifCards {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 30px;
+  padding: 40px 5%;
+}
+
+.tarifCard {
+  background: white;
+  border-radius: 16px;
+  padding: 40px 30px;
+  text-align: center;
+  min-width: 220px;
+  max-width: 280px;
+  flex: 1;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.1);
+  position: relative;
+  transition: transform 0.3s;
+}
+
+.tarifCard:hover {
+  transform: translateY(-6px);
+}
+
+.tarifCard.featured {
+  background: #524A3A;
+  color: #FFFAE1;
+  transform: scale(1.05);
+}
+
+.tarifCard.featured:hover {
+  transform: scale(1.05) translateY(-6px);
+}
+
+.tarifCard h3 {
+  font-size: 1.5em;
+  margin: 10px 0 5px;
+  color: #524A3A;
+  text-align: center;
+  text-transform: none;
+  padding-top: 0;
+}
+
+.tarifCard.featured h3 {
+  color: #FFFAE1;
+}
+
+.periode {
+  font-size: 0.95em;
+  color: #999;
+  margin: 0 0 20px;
+}
+
+.tarifCard.featured .periode {
+  color: #ccc;
+}
+
+.prix {
+  font-size: 1em;
+  margin: 20px 0;
+  line-height: 1.4;
+}
+
+.prix strong {
+  font-size: 2.2em;
+  display: block;
+  color: #524A3A;
+}
+
+.tarifCard.featured .prix strong {
+  color: #01DF74;
+}
+
+.prix span {
+  font-size: 0.9em;
+  color: #888;
+}
+
+.tarifCard.featured .prix span {
+  color: #bbb;
+}
+
+.btnTarif {
+  display: inline-block;
+  margin-top: 20px;
+  padding: 12px 28px;
+  background-color: #01DF74;
+  color: #524A3A;
+  border-radius: 8px;
+  font-family: 'Advent Pro', sans-serif;
+  font-size: 1em;
+  font-weight: bold;
+  transition: background 0.3s, transform 0.2s;
+}
+
+.btnTarif:hover {
+  background-color: #00c062;
+  color: white;
+  transform: scale(1.05);
+}
+
+.badge {
+  position: absolute;
+  top: -12px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #01DF74;
+  color: #524A3A;
+  font-size: 0.8em;
+  font-weight: bold;
+  padding: 4px 16px;
+  border-radius: 20px;
+}
+
+#tarifNote {
+  text-align: center;
+  color: #888;
+  font-size: 0.9em;
+  padding: 0 10%;
+  margin: 0;
+}
+
+/* =========================================
+   FOOTER / CONTACT
+   ========================================= */
 footer {
   background-color: #524A3A;
   color: #FFFAE1;
   padding: 20px 0 10px 0;
   text-align: center;
 }
+
 form {
   margin: 0 auto;
   max-width: 900px;
 }
-input, textarea, button {
+
+input, textarea {
   border: none;
   width: 55%;
   padding: 15px 10px;
@@ -187,47 +426,249 @@ input, textarea, button {
   font-size: 1.2em;
   font-family: 'Advent Pro', sans-serif;
   border-radius: 8px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
 }
+
 textarea {
   height: 120px;
 }
-button {
+
+button[type="submit"] {
+  border: none;
+  width: 55%;
+  padding: 15px 10px;
+  margin: 1px auto;
   font-size: 1.5em;
+  font-family: 'Advent Pro', sans-serif;
+  border-radius: 8px;
+  display: block;
   background-color: #FFFAE1;
-}
-button:hover {
-  background-color: #e55039;
-  color: #FFFAE1;
+  color: #524A3A;
   cursor: pointer;
-  transition: 0.3s ease-in-out;
+  transition: background-color 0.3s, color 0.3s;
 }
+
+button[type="submit"]:hover {
+  background-color: #C9A84C;
+  color: #fff;
+}
+
+button[type="submit"]:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+#formFeedback {
+  margin-top: 12px;
+  font-size: 1.1em;
+  min-height: 28px;
+}
+
 #deuxiemeTrait {
   height: 1px;
   width: 75%;
   background-color: #FFFAE1;
   margin: 60px auto;
 }
+
 #copyrightEtIcons {
   display: flex;
+  align-items: center;
   margin-bottom: 20px;
   padding: 0 10%;
 }
+
 #copyright {
   width: 50%;
   text-align: left;
   color: #FFFAE1;
 }
+
 #icons {
   width: 50%;
   text-align: right;
 }
+
 #icons a {
   display: inline-block;
   padding: 0 15px;
   font-size: 1.3em;
   color: #FFFAE1;
+  transition: transform 0.2s;
 }
+
 #icons a:hover {
   transform: scale(1.5);
-  transition: 0.1s;
+}
+
+/* =========================================
+   LIGHTBOX
+   ========================================= */
+#lightbox {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.92);
+  z-index: 2000;
+  align-items: center;
+  justify-content: center;
+}
+
+#lightbox.active {
+  display: flex;
+}
+
+#lightboxImg {
+  max-width: 90vw;
+  max-height: 88vh;
+  border-radius: 8px;
+  border: none;
+  width: auto;
+  display: block;
+}
+
+#lightboxClose {
+  position: fixed;
+  top: 20px;
+  right: 30px;
+  font-size: 2em;
+  background: none;
+  border: none;
+  color: white;
+  cursor: pointer;
+  padding: 5px 10px;
+  width: auto;
+  border-radius: 4px;
+  margin: 0;
+  line-height: 1;
+  transition: color 0.2s;
+}
+
+#lightboxClose:hover {
+  color: #01DF74;
+  background: none;
+}
+
+/* =========================================
+   ANIMATIONS AU SCROLL
+   ========================================= */
+.fade-in {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+
+.fade-in.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* =========================================
+   RESPONSIVE MOBILE
+   ========================================= */
+@media (max-width: 768px) {
+
+  /* Navbar */
+  .nav-links {
+    display: none;
+  }
+
+  .hamburger {
+    display: flex;
+  }
+
+  /* Hero */
+  h1 {
+    font-size: 3.5em;
+  }
+
+  h3 {
+    font-size: 2em;
+  }
+
+  #imagePrincipale {
+    background-attachment: scroll;
+  }
+
+  /* Présentation */
+  #texteIntro {
+    padding: 20px 8%;
+  }
+
+  #prestations {
+    flex-direction: column;
+    align-items: center;
+    padding: 20px 5%;
+  }
+
+  .imagesPrestations img {
+    width: 100%;
+    max-width: 350px;
+  }
+
+  /* Tourisme */
+  #tourisme {
+    min-height: auto;
+    padding-bottom: 40px;
+  }
+
+  #tourisme li {
+    float: none !important;
+    width: 90%;
+    margin: 20px auto;
+    max-width: none;
+    height: 200px;
+  }
+
+  #tourisme p {
+    float: none;
+    margin: 0 auto;
+    width: 80%;
+    height: auto;
+    padding: 12px;
+  }
+
+  #chateau p, #vignoble p {
+    float: none;
+    margin: 0 auto;
+  }
+
+  /* Tarifs */
+  #tarifCards {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .tarifCard {
+    max-width: 90%;
+    width: 90%;
+  }
+
+  .tarifCard.featured {
+    transform: scale(1);
+    order: -1;
+  }
+
+  .tarifCard.featured:hover {
+    transform: translateY(-6px);
+  }
+
+  /* Contact */
+  input, textarea, button[type="submit"] {
+    width: 85%;
+  }
+
+  /* Footer */
+  #copyrightEtIcons {
+    flex-direction: column;
+    gap: 15px;
+    text-align: center;
+  }
+
+  #copyright, #icons {
+    width: 100%;
+    text-align: center;
+  }
 }
