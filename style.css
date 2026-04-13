@@ -240,12 +240,19 @@ h3 {
 #vignoble { background: url(media/vignes.jpg)   center/cover; }
 
 #tourisme li {
+  cursor: pointer;
+  transition: box-shadow 0.3s, transform 0.3s;
   margin: 65px 100px 0 100px;
   height: 226px;
   width: 55%;
   max-width: 550px;
   float: left;
   box-shadow: 6px 6px 28px -1px rgba(0,0,0,0.75);
+}
+
+#tourisme li:hover {
+  box-shadow: 6px 6px 36px 4px rgba(0,0,0,0.55);
+  transform: scale(1.03);
 }
 
 #tourisme p {

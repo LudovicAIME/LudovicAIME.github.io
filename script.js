@@ -27,15 +27,23 @@ const lightbox     = document.getElementById('lightbox');
 const lightboxImg  = document.getElementById('lightboxImg');
 const lightboxClose = document.getElementById('lightboxClose');
 
+// Images de présentation (balises <img>)
 document.querySelectorAll('.lightbox-trigger').forEach(img => {
-  img.addEventListener('click', () => {
-    lightboxImg.src = img.src;
-    lightboxImg.alt = img.alt;
-    lightbox.classList.add('active');
-    lightbox.setAttribute('aria-hidden', 'false');
-    document.body.style.overflow = 'hidden';
-  });
+  img.addEventListener('click', () => openLightbox(img.src, img.alt));
 });
+
+// Photos du bas (fonds CSS sur <li>)
+document.querySelectorAll('.lightbox-bg').forEach(li => {
+  li.addEventListener('click', () => openLightbox(li.dataset.src, li.dataset.alt));
+});
+
+function openLightbox(src, alt) {
+  lightboxImg.src = src;
+  lightboxImg.alt = alt;
+  lightbox.classList.add('active');
+  lightbox.setAttribute('aria-hidden', 'false');
+  document.body.style.overflow = 'hidden';
+}
 
 lightboxClose.addEventListener('click', closeLightbox);
 
